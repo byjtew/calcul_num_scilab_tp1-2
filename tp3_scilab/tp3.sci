@@ -210,14 +210,14 @@ for s = min_size:max_size
         tic()
         [L, U] = lu(A)
         scilab_times(r) = toc()
-        scilab_errors(r) = erreurs(A, L*U)(1) //(sum(A - L*U))/(s*s)
+        scilab_errors(r) = erreurs(A, L*U)(1)
     
         tic()
         [my3_L, my3_U] = mylu3b(A)
         mylu3b_times(r) = toc()
-        mylu3b_errors(r) = erreurs(A, my3_L*my3_U)(1) //(sum(A- my3_L*my3_U))/(s*s)
+        mylu3b_errors(r) = erreurs(A, my3_L*my3_U)(1) 
 
-        [my_L, my_U, my_P] = mylu(A) // my_L*my_U == my_P * A
+        [my_L, my_U, my_P] = mylu(A) 
         my_lu_errors = my_lu_errors + abs(erreurs(my_P * L * U, my_L*my_U)(1))
     end
     printf("[size: %d] mean time for scilab is %lf\nmean time for mylu3b is %lf\n", s, mean(scilab_times), mean(mylu3b_times))
