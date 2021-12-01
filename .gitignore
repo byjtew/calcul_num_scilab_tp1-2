@@ -1,0 +1,7 @@
+*.odt
+*.pdf
+.git/
+*.odt#
+*.gd
+*.png
+*.dat
